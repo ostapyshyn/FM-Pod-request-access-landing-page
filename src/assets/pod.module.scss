@@ -2,14 +2,26 @@ main {
   // width: 100%;
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
+
   justify-content: center;
-  align-items: center;
-  //overflow-y: auto;
+  max-width: 1275px;
+  height: 640px;
+  width: 100%;
+
+  background-image: url(./image-host-desk.jpg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+
+  .logo {
+    margin-bottom: 75px;
+    transform: translateY(-28px);
+  }
 
   article {
     padding-top: 88px;
     max-width: 723px;
+    background-color: var(--background);
 
     h1 {
       font-family: 'Chivo';
@@ -35,19 +47,23 @@ main {
     .email {
       position: relative;
       max-width: 427px;
+      margin-bottom: 64px;
 
       input {
         width: 100%;
-        padding-top: 20px;
+        padding-top: 14px;
         padding-left: 30px;
-        padding-bottom: 20px;
+        padding-bottom: 14px;
         background-color: var(--input);
         font-family: 'Chivo';
         border: none;
         border-radius: 28px;
         color: var(--white);
-        opacity: 0.5;
-        
+
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 28px;
 
         &:focus {
           outline: none;
@@ -82,6 +98,19 @@ main {
         font-size: 14px;
         line-height: 28px;
         color: var(--background);
+      }
+    }
+    .casts {
+      display: flex;
+      align-items: center;
+      svg {
+        margin-right: 40px;
+      }
+      svg:nth-child(3) {
+        margin-right: 27px;
+      }
+      svg:last-child {
+        margin-right: 0;
       }
     }
   }
