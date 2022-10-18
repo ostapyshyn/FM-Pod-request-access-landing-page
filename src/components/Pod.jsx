@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from '../assets/pod.module.scss';
 import { ReactComponent as Spotify } from '../assets/svg/spotify.svg';
 import { ReactComponent as Apple } from '../assets/svg/apple-podcast.svg';
@@ -9,6 +9,36 @@ import { ReactComponent as Dots } from '../assets/svg/bg-pattern-dots.svg';
 import host from '../assets/image-host-desk.jpg';
 
 const Pod = () => {
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
+  const [windowSize, setWindowSize] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowSize(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const handleOnChange = (e) => {
+    setEmail(e.target.value);
+  };
+
+  const emailValidation = () => {
+    const regEx = /[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/;
+    if (!regEx.test(email) && email !== '') {
+      setMessage('Oops! Please check your email');
+    } else if (email === '') {
+      setMessage('Oops! Please check your email');
+    } else {
+      setMessage('');
+      setEmail('');
+    }
+  };
+
   return (
     <main>
       <Logo className={styles.logo} />
@@ -28,11 +58,21 @@ const Pod = () => {
             id="email"
             autoComplete="off"
             type="email"
-            // value={email}
-            // onChange={handleOnChange}
+            value={email}
+            onChange={handleOnChange}
+            style={
+              message && windowSize <= 500
+                ? {
+                    border: '1px solid var(--red)',
+                    marginBottom: '24px',
+                  }
+                : undefined
+            }
           />
-          <button>Request Access</button>
+          <button onClick={emailValidation}>Request Access</button>
+          <span className={styles.error}>{message}</span>
         </div>
+
         <div className={styles.casts}>
           <Spotify />
           <Apple />
@@ -40,6 +80,7 @@ const Pod = () => {
           <Pocket />
         </div>
       </article>
+      <div className={styles.dots}></div>
     </main>
   );
 };

@@ -1,28 +1,60 @@
+@import '../index.scss';
 main {
   // width: 100%;
-  display: flex;
-  flex-direction: column;
 
-  justify-content: center;
-  max-width: 1275px;
+  position: relative;
+  max-width: 88.54%;
   height: 640px;
   width: 100%;
 
   background-image: url(./image-host-desk.jpg);
   background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
+  background-position: 100% 0px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  @include mq(500px) {
+    max-width: none;
+    background-image: none;
+    justify-content: flex-start;
+  }
+
+  .dots {
+    background-image: url(./svg/bg-pattern-dots.svg);
+    background-repeat: no-repeat;
+    background-position: 100% 0px;
+    width: 232px;
+    height: 104px;
+    position: absolute;
+    right: 0;
+    bottom: -52px;
+    @include mq(500px) {
+      background-image: none;
+      display: none;
+    }
+  }
 
   .logo {
     margin-bottom: 75px;
     transform: translateY(-28px);
+    @include mq(500px) {
+      margin-bottom: 0;
+      transform: translateY(0);
+      margin: 0 auto;
+    }
   }
 
   article {
     padding-top: 88px;
     max-width: 723px;
     background-color: var(--background);
-
+    @include mq(500px) {
+      padding-top: 57px;
+      display: flex;
+      flex-direction: column;
+    }
     h1 {
       font-family: 'Chivo';
       font-weight: 300;
@@ -34,6 +66,12 @@ main {
         color: var(--white);
       }
       margin-bottom: 24px;
+      @include mq(500px) {
+        font-size: 26px;
+        line-height: 38px;
+        text-align: center;
+        margin-bottom: 16px;
+      }
     }
     p {
       font-weight: 300;
@@ -42,12 +80,25 @@ main {
       color: var(--light-blue);
       margin-bottom: 40px;
       max-width: 445px;
+      @include mq(500px) {
+        font-size: 15px;
+        line-height: 25px;
+        text-align: center;
+        margin-bottom: 33px;
+      }
     }
 
     .email {
       position: relative;
       max-width: 427px;
       margin-bottom: 64px;
+
+      @include mq(500px) {
+        order: 1;
+        margin-top: 48px;
+        margin-bottom: 0;
+        max-width: none;
+      }
 
       input {
         width: 100%;
@@ -64,6 +115,11 @@ main {
         font-weight: 400;
         font-size: 14px;
         line-height: 28px;
+
+        @include mq(500px) {
+          padding-top: 9px;
+          padding-bottom: 9px;
+        }
 
         &:focus {
           outline: none;
@@ -86,9 +142,9 @@ main {
         height: 46px;
         position: absolute;
         width: 162px;
-        top: 50%;
+        top: 5px;
         right: 5px;
-        transform: translateY(-50%);
+
         background: var(--green);
         box-shadow: 0px 2px 4px rgba(84, 230, 175, 0.14);
         border-radius: 28px;
@@ -98,6 +154,18 @@ main {
         font-size: 14px;
         line-height: 28px;
         color: var(--background);
+        @include mq(500px) {
+          position: static;
+          transform: none;
+          width: 100%;
+          margin-top: 16px;
+        }
+        &:hover {
+          background: var(--green-light);
+        }
+        &:active {
+          transform: scale(0.98);
+        }
       }
     }
     .casts {
@@ -105,13 +173,40 @@ main {
       align-items: center;
       svg {
         margin-right: 40px;
+        @include mq(500px) {
+          margin-right: 23px;
+        }
       }
       svg:nth-child(3) {
         margin-right: 27px;
+        @include mq(500px) {
+          margin-right: 16px;
+        }
       }
       svg:last-child {
         margin-right: 0;
       }
+    }
+  }
+  .error {
+    font-family: 'Chivo';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    margin-top: 8px;
+    color: var(--red);
+    position: absolute;
+    top: 60px;
+    left: 30px;
+
+    @include mq(500px) {
+      position: absolute;
+      top: 45%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 10px;
+      letter-spacing: 0.125px;
     }
   }
 }

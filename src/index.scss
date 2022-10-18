@@ -7,12 +7,20 @@
   transition: all 0.2s ease-in-out;
 }
 
+@mixin mq($size) {
+  @media screen and (max-width: $size) {
+    @content;
+  }
+}
+
 :root {
   --green: #54e6af;
+  --green-light: #b3ffe2;
   --white: #ffffff;
   --light-blue: #c2cbe5;
   --background: #121725;
   --input: #2c344b;
+  --red: #fb3e3e;
 }
 
 img,
@@ -42,6 +50,10 @@ body {
     'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  @include mq(500px) {
+    padding-inline: 24px;
+    padding-top: 62px;
+  }
 }
 
 code {

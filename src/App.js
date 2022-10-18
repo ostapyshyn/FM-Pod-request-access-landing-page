@@ -1,4 +1,4 @@
-import './App.css';
+import './App.scss';
 import Pod from './components/Pod';
 
 function App() {
