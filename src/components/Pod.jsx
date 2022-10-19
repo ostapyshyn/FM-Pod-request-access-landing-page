@@ -61,7 +61,7 @@ const Pod = () => {
             value={email}
             onChange={handleOnChange}
             style={
-              message && windowSize <= 500
+              message && windowSize <= 620
                 ? {
                     border: '1px solid var(--red)',
                     marginBottom: '24px',

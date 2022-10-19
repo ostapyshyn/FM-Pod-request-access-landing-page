@@ -10,7 +10,7 @@
   /* max-width: 500px; */
   margin: auto;
 
-  @include mq(500px) {
+  @include mq(920px) {
     justify-content: flex-start;
     height: auto;
   }

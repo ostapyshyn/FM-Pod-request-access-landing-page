@@ -4,7 +4,7 @@ main {
 
   position: relative;
   max-width: 88.54%;
-  height: 640px;
+  height: 642px;
   width: 100%;
 
   background-image: url(./image-host-desk.jpg);
@@ -15,10 +15,19 @@ main {
   flex-direction: column;
   justify-content: center;
 
-  @include mq(500px) {
+  @include mq(920px) {
+    background-image: url(./image-host-tabl.jpg);
+    height: 767px;
+    justify-content: flex-start;
+    max-width: 95%;
+  }
+
+  @include mq(620px) {
     max-width: none;
     background-image: none;
     justify-content: flex-start;
+    background-image: none;
+    height: auto;
   }
 
   .dots {
@@ -30,8 +39,11 @@ main {
     position: absolute;
     right: 0;
     bottom: -52px;
-    @include mq(500px) {
+    @include mq(620px) {
       background-image: none;
+      display: none;
+    }
+    @include mq(920px) {
       display: none;
     }
   }
@@ -39,7 +51,12 @@ main {
   .logo {
     margin-bottom: 75px;
     transform: translateY(-28px);
-    @include mq(500px) {
+    @include mq(920px) {
+      margin-top: 50px;
+      margin-bottom: 157px;
+      transform: translateY(0);
+    }
+    @include mq(620px) {
       margin-bottom: 0;
       transform: translateY(0);
       margin: 0 auto;
@@ -50,10 +67,16 @@ main {
     padding-top: 88px;
     max-width: 723px;
     background-color: var(--background);
-    @include mq(500px) {
+    @include mq(920px) {
+      max-width: 635px;
+      padding-top: 93px;
+      border-bottom: 2px solid var(--background);
+    }
+    @include mq(620px) {
       padding-top: 57px;
       display: flex;
       flex-direction: column;
+      background-color: transparent;
     }
     h1 {
       font-family: 'Chivo';
@@ -66,7 +89,12 @@ main {
         color: var(--white);
       }
       margin-bottom: 24px;
-      @include mq(500px) {
+
+      @include mq(920px) {
+        font-size: 48px;
+        line-height: 56px;
+      }
+      @include mq(620px) {
         font-size: 26px;
         line-height: 38px;
         text-align: center;
@@ -80,7 +108,7 @@ main {
       color: var(--light-blue);
       margin-bottom: 40px;
       max-width: 445px;
-      @include mq(500px) {
+      @include mq(620px) {
         font-size: 15px;
         line-height: 25px;
         text-align: center;
@@ -93,7 +121,7 @@ main {
       max-width: 427px;
       margin-bottom: 64px;
 
-      @include mq(500px) {
+      @include mq(620px) {
         order: 1;
         margin-top: 48px;
         margin-bottom: 0;
@@ -116,7 +144,7 @@ main {
         font-size: 14px;
         line-height: 28px;
 
-        @include mq(500px) {
+        @include mq(px) {
           padding-top: 9px;
           padding-bottom: 9px;
         }
@@ -154,7 +182,7 @@ main {
         font-size: 14px;
         line-height: 28px;
         color: var(--background);
-        @include mq(500px) {
+        @include mq(620px) {
           position: static;
           transform: none;
           width: 100%;
@@ -173,13 +201,13 @@ main {
       align-items: center;
       svg {
         margin-right: 40px;
-        @include mq(500px) {
+        @include mq(620px) {
           margin-right: 23px;
         }
       }
       svg:nth-child(3) {
         margin-right: 27px;
-        @include mq(500px) {
+        @include mq(620px) {
           margin-right: 16px;
         }
       }
@@ -200,13 +228,33 @@ main {
     top: 60px;
     left: 30px;
 
-    @include mq(500px) {
+    @include mq(620px) {
       position: absolute;
-      top: 45%;
+      top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
       font-size: 10px;
       letter-spacing: 0.125px;
     }
+  }
+}
+
+.dots2 {
+  background-image: url(./svg/bg-pattern-dots.svg);
+  background-repeat: no-repeat;
+  background-position: 100% 0px;
+  width: 232px;
+  height: 104px;
+  position: absolute;
+  display: none;
+
+  @include mq(920px) {
+    display: block;
+    left: 5%;
+    bottom: 0;
+  }
+
+  @include mq(620px) {
+    display: none;
   }
 }
