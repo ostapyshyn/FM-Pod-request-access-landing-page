@@ -54,12 +54,8 @@ body {
     padding-inline: 24px;
     padding-top: 62px;
 
-    background-image: url(./assets/image-host-mob.jpg);
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    background-color: var(--input);
-    background-blend-mode: multiply;
+    background: linear-gradient(rgba(18, 23, 37, 0.9), rgba(18, 23, 37, 0.9)),
+      url(./assets/image-host-mob.jpg) no-repeat center center/cover;
   }
 }
 
